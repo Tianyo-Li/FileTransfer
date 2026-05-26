@@ -1,0 +1,43 @@
+# 网络文件传输工具
+
+基于 Qt 的网络文件传输工具，支持 Windows 与树莓派 ARM 平台之间的双向文件传输。
+
+## 项目结构
+
+- `raspberryProjects/` - 树莓派端源代码（C++）
+- 其他文件 - Windows 端 Qt 系统代码
+
+## 功能特点
+
+- Windows 端图形化界面，操作简单
+- 支持 Windows ↔ 树莓派 双向文件传输
+- 大文件分块传输（64KB/块），避免内存溢出
+- 支持目录传输，自动遍历子文件夹
+- 实时进度显示
+- 自定义应用层通信协议
+
+## 环境要求
+
+### Windows 端
+- Qt 6.x / 5.15
+- MinGW 或 MSVC 编译器
+
+### 树莓派端
+- 树莓派 3B / 4B
+- Raspberry Pi OS
+- g++ (支持 C++11)
+
+## 编译方法
+
+### Windows 端 (Qt Creator)
+1. 用 Qt Creator 打开 `FileTransfer.pro`
+2. 选择 MinGW 64-bit 套件
+3. 点击"构建"或"运行"
+
+### 树莓派端
+```bash
+# 接收端
+g++ client.cpp -o client
+
+# 发送端
+g++ send.cpp -o send
